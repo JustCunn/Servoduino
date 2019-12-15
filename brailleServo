@@ -1,6 +1,5 @@
-//Open the Serial Monitor and set the 'baudrate' to 9600
-  Also, in the Serial Monitor, on the bottom, set it to 'no line ending', not 'newline' or any other setting
-  //
+/*Open the Serial Monitor and set the 'baudrate' to 9600
+  Also, in the Serial Monitor, on the bottom, set it to 'no line ending', not 'newline' or any other setting*/
 
 #include <Servo.h>
 
@@ -11,7 +10,7 @@ Servo servo_11;
 Servo servo_12;
 Servo servo_13;
 
-string bC; 						//Braille Character
+String bC; 						//Braille Character
 int angle = 20;						//Angle when activated
 
 void clearBraille() {				//Sets all pins to 0°
@@ -202,7 +201,7 @@ void setup() {
 
 void loop() {
     Serial.println("Enter a Character:");	//Asks to type a character
-    while (serial.available() == 0) {		//Stops anything from happening until a character is typed
+    while (Serial.available() == 0) {		//Stops anything from happening until a character is typed
         
     }
     
