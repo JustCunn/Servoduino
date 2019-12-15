@@ -1,14 +1,14 @@
 #include <Servo.h>
 
-servo servo_8;
-servo servo_9;
-servo servo_10;
-servo servo_11;
-servo servo_12;
-servo servo_13;
+Servo servo_8;
+Servo servo_9;
+Servo servo_10;
+Servo servo_11;
+Servo servo_12;
+Servo servo_13;
 
 string bC; 						//Braille Character
-int angle = 20						//Angle when activated
+int angle = 20;						//Angle when activated
 
 void clearBraille() {				//Sets all pins to 0°
     servo_8.write(0);
