@@ -10,7 +10,9 @@ Servo servo_11;
 Servo servo_12;
 Servo servo_13;
 
-String bC; 						//Braille Character
+char bC;                  //Braille Character
+boolean newData = false;
+
 int angle = 20;						//Angle when activated
 
 void clearBraille() {				//Sets all pins to 0°
@@ -24,6 +26,8 @@ void clearBraille() {				//Sets all pins to 0°
 }
 
 void checkBraille() {				//Checks every character and picks correct braille character
+ if (newData == true) {    
+    
     if (bC == "A" || bC == "1") {
         servo_8.write(angle);
     }
@@ -185,6 +189,7 @@ void checkBraille() {				//Checks every character and picks correct braille char
         servo_13.write(angle);
         
     }
+   }
 }
     
 void setup() {
@@ -201,14 +206,15 @@ void setup() {
 
 void loop() {
     Serial.println("Enter a Character:");	//Asks to type a character
-    while (Serial.available() == 0) {		//Stops anything from happening until a character is typed
-        
-    }
-    
+    recvOneChar();
     bC = Serial.readString();		//Gives string variable 'bC' the inputted value
-    
     clearBraille();
-    
     checkBraille();
-    
+}
+
+void recvOneChar() {
+    if (Serial.available() > 0) {
+        bC = Serial.read();
+        newData = true;
+    }
 }
