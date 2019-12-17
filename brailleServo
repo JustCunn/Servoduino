@@ -1,8 +1,10 @@
-/*Open the Serial Monitor and set the 'baudrate' to 9600
-  Also, in the Serial Monitor, on the bottom, set it to 'no line ending', not 'newline' or any other setting*/
+/* Justin is the GOAT */
 
 #include <Servo.h>
 
+char bC;
+boolean newData = false;
+int angle = 30;
 Servo servo_8;
 Servo servo_9;
 Servo servo_10;
@@ -10,116 +12,131 @@ Servo servo_11;
 Servo servo_12;
 Servo servo_13;
 
-char bC;                  //Braille Character
-boolean newData = false;
+void setup() {
+ Serial.begin(9600);
+ Serial.println("<Arduino is ready>");
+ servo_8.attach(8);
+ servo_9.attach(9);
+ servo_10.attach(10);
+ servo_11.attach(11);
+ servo_12.attach(12);
+ servo_13.attach(13);
 
-int angle = 20;						//Angle when activated
-
-void clearBraille() {				//Sets all pins to 0°
-    servo_8.write(0);
-    servo_9.write(0);
-    servo_10.write(0);
-    servo_11.write(0);
-    servo_12.write(0);
-    servo_13.write(0);
-    
+ servo_8.write(0);
+ servo_9.write(0);
+ servo_10.write(0);
+ servo_11.write(0);
+ servo_12.write(0);
+ servo_13.write(0);
 }
 
-void checkBraille() {				//Checks every character and picks correct braille character
- if (newData == true) {    
-    
-    if (bC == "A" || bC == "1") {
+void loop() {
+ recvOneChar();
+ showNewData();
+}
+
+void recvOneChar() {
+ if (Serial.available() > 0) {
+ bC = Serial.read();
+ newData = true;
+ }
+}
+
+void showNewData() {
+ if (newData == true) {
+  
+  if (bC == 'A' || bC == '1') {
         servo_8.write(angle);
     }
-    else if (bC == "B" || bC == "2") {
+    else if (bC == 'B' || bC == '2') {
         servo_8.write(angle);
         servo_9.write(angle);
         
     }
-    else if (bC == "C" || bC == "3") {
+    else if (bC == 'C' || bC == '3') {
         servo_8.write(angle);
         servo_11.write(angle);
         
     }
-    else if (bC == "D" || bC == "4") {
+    else if (bC == 'D' || bC == '4') {
         servo_8.write(angle);
-        servo_11.write(angle);
-        servo_12.write(angle);
-        
-    }
-    else if (bC == "E" || bC == "5") {
-        servo_8.write(angle);
-        servo_12.write(angle);
-        
-    }
-    else if (bC == "F" || bC == "6") {
-        servo_8.write(angle);
-        servo_9.write(angle);
-        servo_11.write(angle);
-        
-    }
-    else if (bC == "G" || bC == "7") {
-        servo_8.write(angle);
-        servo_9.write(angle);
         servo_11.write(angle);
         servo_12.write(angle);
         
     }
-    else if (bC == "H" || bC == "8") {
+    else if (bC == 'E' || bC == '5') {
         servo_8.write(angle);
-        servo_9.write(angle);
         servo_12.write(angle);
         
     }
-    else if (bC == "I" || bC == "9") {
+    else if (bC == 'F' || bC == '6') {
+        servo_8.write(angle);
         servo_9.write(angle);
         servo_11.write(angle);
         
     }
-    else if (bC == "J" || bC == "0") {
+    else if (bC == 'G' || bC == '7') {
+        servo_8.write(angle);
         servo_9.write(angle);
         servo_11.write(angle);
         servo_12.write(angle);
         
     }
-    else if (bC == "K") {
+    else if (bC == 'H' || bC == '8') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC == 'I' || bC == '9') {
+        servo_9.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC == 'J' || bC == '0') {
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC == 'K') {
         servo_8.write(angle);
         servo_10.write(angle);
         
     }
-    else if (bC == "L") {
+    else if (bC == 'L') {
         servo_8.write(angle);
         servo_9.write(angle);
         servo_10.write(angle);
         
     }
-    else if (bC == "M") {
+    else if (bC == 'M') {
         servo_8.write(angle);
         servo_10.write(angle);
         servo_11.write(angle);
         
     }
-    else if (bC == "N") {
+    else if (bC == 'N') {
         servo_8.write(angle);
         servo_10.write(angle);
         servo_11.write(angle);
         servo_12.write(angle);
         
     }
-    else if (bC == "O") {
+    else if (bC == 'O') {
         servo_8.write(angle);
         servo_10.write(angle);
         servo_12.write(angle);
         
     }
-    else if (bC == "P") {
+    else if (bC == 'P') {
         servo_8.write(angle);
         servo_9.write(angle);
         servo_10.write(angle);
         servo_11.write(angle);
         
     }
-    else if (bC == "Q") {
+    else if (bC == 'Q') {
         servo_8.write(angle);
         servo_9.write(angle);
         servo_10.write(angle);
@@ -127,54 +144,54 @@ void checkBraille() {				//Checks every character and picks correct braille char
         servo_12.write(angle);
        
     }
-    else if (bC == "R") {
+    else if (bC == 'R') {
         servo_8.write(angle);
         servo_9.write(angle);
         servo_10.write(angle);
         servo_12.write(angle);
         
     }
-    else if (bC == "S") {
+    else if (bC == 'S') {
         servo_9.write(angle);
         servo_10.write(angle);
         servo_11.write(angle);
         
     }
-    else if (bC == "T") {
+    else if (bC == 'T') {
         servo_9.write(angle);
         servo_10.write(angle);
         servo_11.write(angle);
         servo_12.write(angle);
         
     }
-    else if (bC == "U") {
+    else if (bC == 'U') {
         servo_8.write(angle);
         servo_10.write(angle);
         servo_13.write(angle);
         
     }
-    else if (bC == "V") {
+    else if (bC == 'V') {
         servo_8.write(angle);
         servo_9.write(angle);
         servo_10.write(angle);
         servo_13.write(angle);
         
     }
-    else if (bC == "W") {
+    else if (bC == 'W') {
         servo_9.write(angle);
         servo_11.write(angle);
         servo_12.write(angle);
         servo_13.write(angle);
         
     }
-    else if (bC == "X") {
+    else if (bC == 'X') {
         servo_8.write(angle);
         servo_10.write(angle);
         servo_11.write(angle);
         servo_13.write(angle);
         
     }
-    else if (bC == "Y") {
+    else if (bC == 'Y') {
         servo_8.write(angle);
         servo_10.write(angle);
         servo_11.write(angle);
@@ -182,39 +199,22 @@ void checkBraille() {				//Checks every character and picks correct braille char
         servo_13.write(angle);
         
     }
-    else if (bC == "Z") {
+    else if (bC == 'Z') {
         servo_8.write(angle);
         servo_10.write(angle);
         servo_12.write(angle);
         servo_13.write(angle);
+  
+  }
+ newData = false;
+ 
+ delay(2000);
+        servo_8.write(0);
+        servo_9.write(0);
+        servo_10.write(0);
+        servo_11.write(0);
+        servo_12.write(0);
+        servo_13.write(0);
         
-    }
-   }
-}
-    
-void setup() {
-    Serial.begin(9600);
-    
-    servo_8.attach(8);
-    servo_9.attach(9);
-    servo_10.attach(10);
-    servo_11.attach(11);
-    servo_12.attach(12);
-    servo_13.attach(13);
-   
-}
-
-void loop() {
-    Serial.println("Enter a Character:");	//Asks to type a character
-    recvOneChar();
-    bC = Serial.readString();		//Gives string variable 'bC' the inputted value
-    clearBraille();
-    checkBraille();
-}
-
-void recvOneChar() {
-    if (Serial.available() > 0) {
-        bC = Serial.read();
-        newData = true;
-    }
+ }
 }
