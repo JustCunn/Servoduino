@@ -1,0 +1,508 @@
+/*In Serial Monitor, changle line ending to (newline \n)*/
+
+#include <Servo.h>
+
+const byte numChars = 32;
+char bC[numChars];
+boolean newData = false;
+int angle = 30;
+Servo servo_8;
+Servo servo_9;
+Servo servo_10;
+Servo servo_11;
+Servo servo_12;
+Servo servo_13;
+
+void setup() {
+ Serial.begin(9600);
+ Serial.println("<Arduino is ready>");
+ servo_8.attach(8);
+ servo_9.attach(9);
+ servo_10.attach(10);
+ servo_11.attach(11);
+ servo_12.attach(12);
+ servo_13.attach(13);
+ 
+ servo_8.write(0);
+ servo_9.write(0);
+ servo_10.write(0);
+ servo_11.write(0);
+ servo_12.write(0);
+ servo_13.write(0);
+}
+
+void clearCells() {
+  servo_8.write(0);
+  servo_9.write(0);
+  servo_10.write(0);
+  servo_11.write(0);
+  servo_12.write(0);
+  servo_13.write(0);
+}
+
+void capLet() {
+    servo_13.write(angle);
+    delay(1500);
+ }
+ 
+ void numSym() {
+     servo_10.write(angle);
+     servo_11.write(angle);
+     servo_12.write(angle);
+     servo_13.write(angle);
+     delay(1500);
+ }
+
+void recvWithEndMarker() {
+ static byte i = 0;
+ char endMarker = '\n';
+ char rc;
+ 
+ if (Serial.available() > 0) {
+   while (Serial.available() > 0 && newData == false) {
+ rc = Serial.read();
+
+ if (rc != endMarker) {
+ bC[i] = rc;
+ i++;
+ if (i >= numChars) {
+ i = numChars - 1;
+ }
+ }
+ else {
+ bC[i] = '\0'; // terminate the string
+ i = 0;
+ newData = true;
+ }
+ }
+}
+}
+
+void showNewData() {
+ for (int i = 0; i < strlen(bC); i++) {
+  if (newData == true) {
+  if (bC[i] == 'A') {
+       capLet();
+       servo_8.write(angle);
+    }
+    else if (bC[i] == 'B') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        
+    }
+    else if (bC[i] == 'C') {
+        capLet();
+        servo_8.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'D') {
+        capLet();
+        servo_8.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'E') {
+        capLet();
+        servo_8.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'F') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'G') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'H') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'I') {
+        capLet();
+        servo_9.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'J') {
+        capLet();
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'K') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        
+    }
+    else if (bC[i] == 'L') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        
+    }
+    else if (bC[i] == 'M') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'N') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'O') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'P') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'Q') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+       
+    }
+    else if (bC[i] == 'R') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'S') {
+        capLet();
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'T') {
+        capLet();
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'U') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'V') {
+        capLet();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'W') {
+        capLet();
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'X') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'Y') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'Z') {
+        capLet();
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+    }
+    else if (bC[i] == 'a') {
+       servo_8.write(angle);
+    }
+    else if (bC[i] == 'b') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        
+    }
+    else if (bC[i] == 'c') {
+        servo_8.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'd') {
+        servo_8.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'e') {
+        servo_8.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'f') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'g') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'h') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'i') {
+        servo_9.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'j') {
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'k') {
+        servo_8.write(angle);
+        servo_10.write(angle);
+        
+    }
+    else if (bC[i] == 'l') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        
+    }
+    else if (bC[i] == 'm') {
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'n') {
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'o') {
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'p') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 'q') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+       
+    }
+    else if (bC[i] == 'r') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 's') {
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == 't') {
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == 'u') {
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'v') {
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'w') {        
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'x') {       
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'y') {        
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+        
+    }
+    else if (bC[i] == 'z') {      
+        servo_8.write(angle);
+        servo_10.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+  
+   }
+   else if (bC[i] == '1') {
+       numSym();
+       servo_8.write(angle);
+    }
+    else if (bC[i] == '2') {
+        numSym();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        
+    }
+    else if (bC[i] == '3') {
+        numSym();
+        servo_8.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == '4') {
+        numSym();
+        servo_8.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == '5') {
+        numSym();
+        servo_8.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == '6') {
+        numSym();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == '7') {
+        numSym();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == '8') {
+        numSym();
+        servo_8.write(angle);
+        servo_9.write(angle);
+        servo_12.write(angle);
+        
+    }
+    else if (bC[i] == '9') {
+        numSym();
+        servo_9.write(angle);
+        servo_11.write(angle);
+        
+    }
+    else if (bC[i] == '0') {
+        numSym();
+        servo_9.write(angle);
+        servo_11.write(angle);
+        servo_12.write(angle);
+        
+    }
+  
+ newData = false;
+ 
+ delay(2000);
+  clearCells();
+ }
+ }
+}
+
+void loop() {
+ recvWithEndMarker();
+ showNewData();
+}
+
