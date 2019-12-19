@@ -492,6 +492,39 @@ void showNewData() {
         servo_12.write(angle);
         
     }
+     else if (bC == '.') {
+        servo_9.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+    }
+
+    else if (bC == ',') {
+        servo_9.write(angle);
+    }
+
+    else if (bC == '?') {
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_13.write(angle);
+    }
+
+    else if (bC == ';') {
+        servo_9.write(angle);
+        servo_10.write(angle);
+    }
+
+    else if (bC == '!') {
+        servo_9.write(angle);
+        servo_10.write(angle);
+        servo_12.write(angle);
+    }
+    
+    else if (bC == '"') {
+        servo_10.write(angle);
+        servo_12.write(angle);
+        servo_13.write(angle);
+
+    }
   
  newData = false;
  
