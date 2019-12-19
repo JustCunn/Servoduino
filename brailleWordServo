@@ -54,7 +54,7 @@ void capLet() {
  }
 
 void recvWithEndMarker() {
- static byte i = 0;
+ static byte ndx = 0;
  char endMarker = '\n';
  char rc;
  
@@ -63,15 +63,15 @@ void recvWithEndMarker() {
  rc = Serial.read();
 
  if (rc != endMarker) {
- bC[i] = rc;
- i++;
- if (i >= numChars) {
- i = numChars - 1;
+ bC[ndx] = rc;
+ ndx++;
+ if (ndx >= numChars) {
+ ndx = numChars - 1;
  }
  }
  else {
- bC[i] = '\0'; // terminate the string
- i = 0;
+ bC[ndx] = '\0'; // terminate the string
+ ndx = 0;
  newData = true;
  }
  }
