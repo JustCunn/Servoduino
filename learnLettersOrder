@@ -1,0 +1,222 @@
+void learnLettersOrder()  {
+     Serial.println(" ");
+     Serial.println("This is the Capital Letter character.");
+     Serial.println("This is used to distinguish between lower and uppercase letters.");
+     //placeholder
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is A.");
+     servo_8.write(angle8);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is B.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     delay(learnAngle);
+     resetServo();
+    
+     Serial.println(" ");
+     Serial.println("This is C.");
+     servo_8.write(angle8);
+     servo_11.write(angle11);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is D.");
+     servo_8.write(angle8);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is E.");
+     servo_8.write(angle8);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is F.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_11.write(angle11);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is G.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is H.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is I.");
+     servo_9.write(angle9);
+     servo_11.write(angle11);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is J.");
+     servo_9.write(angle9);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is K.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is L.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_10.write(angle10);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is M.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is N.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is O.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is P.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is Q.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is R.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_10.write(angle10);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is S.");
+     servo_9.write(angle9);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is T.");
+     servo_9.write(angle9);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is U.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     servo_13.write(angle13);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is V.");
+     servo_8.write(angle8);
+     servo_9.write(angle9);
+     servo_10.write(angle10);
+     servo_13.write(angle13);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is W.");
+     servo_9.write(angle9);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     servo_13.write(angle13);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is X.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     servo_13.write(angle13);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is Y.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     servo_11.write(angle11);
+     servo_12.write(angle12);
+     servo_13.write(angle13);
+     delay(learnAngle);
+     resetServo();
+     
+     Serial.println(" ");
+     Serial.println("This is Z.");
+     servo_8.write(angle8);
+     servo_10.write(angle10);
+     servo_12.write(angle12);
+     servo_13.write(angle13);
+     delay(learnAngle);
+     resetServo();
+}
