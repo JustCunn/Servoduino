@@ -3,7 +3,7 @@
 const byte numChars = 32;
 char receivedChars[numChars]; // an array to store the received data
 Servo servo;
-const int buttonPin = 13;
+const int buttonPin = 7;
 int buttonState = 0;
 int buttonMode = 0;
 int textMode = 0;
@@ -12,7 +12,6 @@ int qMode = 1;
 int wText = 1;
 int sMode = 0;
 int lMode = 0;
-int lMotor = 0;
 int bMode = 0;
 int xText = 1;
 int learnDelay = 5000;
@@ -22,19 +21,19 @@ int sInt = 0;
 boolean newData = false;
 boolean newDataA = false;
 
-int angle8 = 85;
-int angle9 = 77;
-int angle10 = 70;
-int angle11 = 110;
-int angle12 = 103;
-//int angle13 = 95;
+float angle13 = 92;
+float angle12 = 99.5;
+float angle11 = 84;
+float angle10 = 93;
+float angle9 = 92;
+float angle8 = 98;
 
 Servo servo_8;
 Servo servo_9;
 Servo servo_10;
 Servo servo_11;
 Servo servo_12;
-//Servo servo_13;
+Servo servo_13;
 
 void setup() {
   Serial.begin(9600);
@@ -45,7 +44,7 @@ void setup() {
   servo_10.attach(10);
   servo_11.attach(11);
   servo_12.attach(12);
-  //servo_13.attach(13);
+  servo_13.attach(6);
   resetServo();
   randomSeed(analogRead(0));
 }
@@ -78,16 +77,16 @@ void recvWithEndMarker() {
 }
 
 void resetServo() {
-  servo_8.write(90);
-  servo_9.write(90);
-  servo_10.write(90);
-  servo_11.write(90);
-  servo_12.write(90);
-  //servo_13.write(90);
+  servo_8.write(103);
+  servo_9.write(96);
+  servo_10.write(96);
+  servo_11.write(80);
+  servo_12.write(96);
+  servo_13.write(90);
 }
 
 void capLet() {
-  //servo_13.write(angle13);
+  servo_13.write(angle13);
   delay(1500);
 }
 
@@ -100,7 +99,7 @@ void numSym() {
   servo_10.write(angle10);
   servo_11.write(angle11);
   servo_12.write(angle12);
-  //servo_13.write(angle13);
+  servo_13.write(angle13);
   delay(1500);
 }
 
@@ -131,7 +130,7 @@ void learnLettersRandom()  {
     Serial.println(" ");
     Serial.println("This is the Capital Letter character.");
     Serial.println("This is used to distinguish between lower and uppercase letters.");
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnLettersRandom();
@@ -362,7 +361,7 @@ void learnLettersRandom()  {
     Serial.println("This is U.");
     servo_8.write(angle8);
     servo_10.write(angle10);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnLettersRandom();
@@ -374,7 +373,7 @@ void learnLettersRandom()  {
     servo_8.write(angle8);
     servo_9.write(angle9);
     servo_10.write(angle10);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnLettersRandom();
@@ -386,7 +385,7 @@ void learnLettersRandom()  {
     servo_9.write(angle9);
     servo_11.write(angle11);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnLettersRandom();
@@ -398,7 +397,7 @@ void learnLettersRandom()  {
     servo_8.write(angle8);
     servo_10.write(angle10);
     servo_11.write(angle11);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnLettersRandom();
@@ -411,7 +410,7 @@ void learnLettersRandom()  {
     servo_10.write(angle10);
     servo_11.write(angle11);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnLettersRandom();
@@ -423,7 +422,7 @@ void learnLettersRandom()  {
     servo_8.write(angle8);
     servo_10.write(angle10);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnLettersRandom();
@@ -435,7 +434,7 @@ void learnLettersOrder()  {
     Serial.println(" ");
     Serial.println("This is the Capital Letter character.");
     Serial.println("This is used to distinguish between lower and uppercase letters.");
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
 
@@ -603,7 +602,7 @@ void learnLettersOrder()  {
     Serial.println("This is U.");
     servo_8.write(angle8);
     servo_10.write(angle10);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
 
@@ -612,7 +611,7 @@ void learnLettersOrder()  {
     servo_8.write(angle8);
     servo_9.write(angle9);
     servo_10.write(angle10);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
 
@@ -621,7 +620,7 @@ void learnLettersOrder()  {
     servo_9.write(angle9);
     servo_11.write(angle11);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
 
@@ -630,7 +629,7 @@ void learnLettersOrder()  {
     servo_8.write(angle8);
     servo_10.write(angle10);
     servo_11.write(angle11);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
 
@@ -640,7 +639,7 @@ void learnLettersOrder()  {
     servo_10.write(angle10);
     servo_11.write(angle11);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
 
@@ -649,7 +648,7 @@ void learnLettersOrder()  {
     servo_8.write(angle8);
     servo_10.write(angle10);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
   }
@@ -662,10 +661,10 @@ void learnLetters() {
     Serial.println("Ready to learn letters? [V] Random, [B] In order");
     bMode++;
   }
-  if (bC == 'B')  {
+  if (bC == 'b')  {
     learnLettersOrder();
   }
-  else if (bC == 'V') {
+  else if (bC == 'v') {
     learnLettersRandom();
   }
 
@@ -681,7 +680,7 @@ void learnNumbersOrdered()  {
   servo_10.write(angle10);
   servo_11.write(angle11);
   servo_12.write(angle12);
-  //servo_13.write(angle13);
+  servo_13.write(angle13);
 
   delay(9000);
   resetServo();
@@ -773,7 +772,7 @@ void learnNumbersOrdered()  {
   Serial.println("This is '.'.");
   servo_9.write(angle9);
   servo_12.write(angle12);
-  //servo_13.write(angle13);
+  servo_13.write(angle13);
   delay(learnDelay);
   resetServo();
 
@@ -781,7 +780,7 @@ void learnNumbersOrdered()  {
   Serial.println("This is '?'.");
   servo_9.write(angle9);
   servo_10.write(angle10);
-  //servo_13.write(angle13);
+  servo_13.write(angle13);
   delay(learnDelay);
   resetServo();
 
@@ -804,16 +803,16 @@ void learnNumbersOrdered()  {
   Serial.println("This is '' (Double Quotation Marks).");
   servo_10.write(angle10);
   servo_12.write(angle12);
-  //servo_13.write(angle13);
+  servo_13.write(angle13);
   delay(learnDelay);
   resetServo();
 
   if (lMode == 14) {
-    if (bC == 'Y')  {
+    if (bC == 'y')  {
       lMode = 1;
       newData = false;
     }
-    else if (bC == 'N') {
+    else if (bC == 'n') {
       newData = false;
     }
   }
@@ -833,7 +832,7 @@ void learnNumbersRandom()  {
     servo_10.write(angle10);
     servo_11.write(angle11);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
 
     delay(9000);
     resetServo();
@@ -949,7 +948,7 @@ void learnNumbersRandom()  {
     Serial.println("This is '.'.");
     servo_9.write(angle9);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnNumbersRandom();
@@ -959,7 +958,7 @@ void learnNumbersRandom()  {
     Serial.println("This is ' ? '.");
     servo_9.write(angle9);
     servo_10.write(angle10);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnNumbersRandom();
@@ -988,7 +987,7 @@ void learnNumbersRandom()  {
     Serial.println("This is '' (Double Quotation Marks).");
     servo_10.write(angle10);
     servo_12.write(angle12);
-    //servo_13.write(angle13);
+    servo_13.write(angle13);
     delay(learnDelay);
     resetServo();
     learnNumbersRandom();
@@ -1003,10 +1002,10 @@ void learnNumbers() {
     Serial.println("Ready to learn numbers? [V] Random, [B] In order");
     lMode++;
   }
-  if (bC == 'B')  {
+  if (bC == 'b')  {
     learnNumbersOrdered();
   }
-  else if (bC == 'V') {
+  else if (bC == 'v') {
     learnNumbersRandom();
   }
 
@@ -1338,7 +1337,7 @@ void showNewData()  {
       capLet();
       servo_8.write(angle8);
       servo_10.write(angle10);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'V') {
@@ -1346,7 +1345,7 @@ void showNewData()  {
       servo_8.write(angle8);
       servo_9.write(angle9);
       servo_10.write(angle10);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'W') {
@@ -1354,7 +1353,7 @@ void showNewData()  {
       servo_9.write(angle9);
       servo_11.write(angle11);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'X') {
@@ -1362,7 +1361,7 @@ void showNewData()  {
       servo_8.write(angle8);
       servo_10.write(angle10);
       servo_11.write(angle11);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'Y') {
@@ -1371,7 +1370,7 @@ void showNewData()  {
       servo_10.write(angle10);
       servo_11.write(angle11);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'Z') {
@@ -1379,7 +1378,7 @@ void showNewData()  {
       servo_8.write(angle8);
       servo_10.write(angle10);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'a') {
@@ -1505,28 +1504,28 @@ void showNewData()  {
     else if (bC == 'u') {
       servo_8.write(angle8);
       servo_10.write(angle10);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'v') {
       servo_8.write(angle8);
       servo_9.write(angle9);
       servo_10.write(angle10);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'w') {
       servo_9.write(angle9);
       servo_11.write(angle11);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'x') {
       servo_8.write(angle8);
       servo_10.write(angle10);
       servo_11.write(angle11);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'y') {
@@ -1534,14 +1533,14 @@ void showNewData()  {
       servo_10.write(angle10);
       servo_11.write(angle11);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == 'z') {
       servo_8.write(angle8);
       servo_10.write(angle10);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == '1') {
@@ -1612,7 +1611,7 @@ void showNewData()  {
     else if (bC == '.') {
       servo_9.write(angle9);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
 
     else if (bC == ',') {
@@ -1622,7 +1621,7 @@ void showNewData()  {
     else if (bC == '?') {
       servo_9.write(angle9);
       servo_10.write(angle10);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
     else if (bC == ';') {
       servo_9.write(angle9);
@@ -1636,7 +1635,7 @@ void showNewData()  {
     else if (bC == '"') {
       servo_10.write(angle10);
       servo_12.write(angle12);
-      //servo_13.write(angle13);
+      servo_13.write(angle13);
     }
     newData = false;
     delay(tModeDelay);
